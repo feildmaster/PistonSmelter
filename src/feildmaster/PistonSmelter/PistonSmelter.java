@@ -14,7 +14,7 @@ public class PistonSmelter extends JavaPlugin {
         pm.registerEvent(Event.Type.BLOCK_PHYSICS, blockListener, Event.Priority.Normal, this);
         pm.registerEvent(Event.Type.BLOCK_BREAK, blockListener, Event.Priority.Normal, this);
 
-        System.out.println("Piston Smelter v1.0: Enabled");
+        System.out.println("Piston Smelter v"+getDescription().getVersion()+": Enabled");
     }
     
 }

@@ -26,23 +26,20 @@ class DetectPhysics extends BlockListener {
         Block block = event.getBlock();
         if (block.getData() == (byte)15) {
             if(block.getType() == Material.STONE) {
-                ItemStack stone = new ItemStack(Material.STONE, 1);
-                event.getPlayer().getWorld().dropItemNaturally(block.getLocation(), stone);
+                event.getPlayer().getWorld().dropItemNaturally(block.getLocation(), new ItemStack(Material.STONE, 1));
                 block.setType(Material.AIR);
                 event.setCancelled(true);
             } else if (block.getType() == Material.IRON_BLOCK) {
-                ItemStack bi = new ItemStack(Material.IRON_INGOT, 1);
-                event.getPlayer().getWorld().dropItemNaturally(block.getLocation(), bi);
+                event.getPlayer().getWorld().dropItemNaturally(block.getLocation(), new ItemStack(Material.IRON_INGOT, 1));
                 block.setType(Material.AIR);
                 event.setCancelled(true);
             } else if (block.getType() == Material.GOLD_BLOCK) {
-                ItemStack bi = new ItemStack(Material.GOLD_INGOT, 1);
-                event.getPlayer().getWorld().dropItemNaturally(block.getLocation(), bi);
+                event.getPlayer().getWorld().dropItemNaturally(block.getLocation(), new ItemStack(Material.GOLD_INGOT, 1));
                 block.setType(Material.AIR);
                 event.setCancelled(true);
             } else if (block.getType() == Material.GLASS) {
-                ItemStack bi = new ItemStack(Material.GLASS, 1);
-                event.getPlayer().getWorld().dropItemNaturally(block.getLocation(), bi);
+                event.getPlayer().getWorld().dropItemNaturally(block.getLocation(), new ItemStack(Material.GLASS, 1));
+                event.setCancelled(true);
             }
         }
     }
