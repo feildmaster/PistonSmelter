@@ -11,7 +11,7 @@ class DetectExplosion extends EntityListener {
         for(Block block : event.blockList()) {
             if(block.getData() == (byte)15) {
                 if(block.getType() == Material.IRON_BLOCK) {
-                    event.blockList().remove(id);
+                    //event.blockList().remove(id);
                 } else if (block.getType() == Material.GOLD_BLOCK) {
                     event.blockList().remove(id);
                 }
