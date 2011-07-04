@@ -39,6 +39,7 @@ class DetectPhysics extends BlockListener {
                 event.setCancelled(true);
             } else if (block.getType() == Material.GLASS) {
                 event.getPlayer().getWorld().dropItemNaturally(block.getLocation(), new ItemStack(Material.GLASS, 1));
+                block.setType(Material.AIR);
                 event.setCancelled(true);
             }
         }
