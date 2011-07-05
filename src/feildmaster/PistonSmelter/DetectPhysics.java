@@ -6,11 +6,13 @@ import org.bukkit.block.BlockFace;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockListener;
 import org.bukkit.event.block.BlockPhysicsEvent;
-import org.bukkit.inventory.ItemStack;
 
 class DetectPhysics extends BlockListener {
+    private final PistonSmelter plugin;
 
-    public DetectPhysics() {}
+    public DetectPhysics(PistonSmelter plugin) {
+        this.plugin = plugin;
+    }
 
     protected Boolean next2Piston(Block block) {
         if (block.getFace(BlockFace.EAST).getType() == Material.PISTON_EXTENSION
@@ -30,7 +32,7 @@ class DetectPhysics extends BlockListener {
                     || block.getType() == Material.IRON_BLOCK
                     || block.getType() == Material.GOLD_BLOCK
                     || block.getType() == Material.GLASS) {
-                simulateBreak(block);
+                plugin.simulateBreak(block);
                 event.setCancelled(true);
             }
         }
@@ -61,19 +63,7 @@ class DetectPhysics extends BlockListener {
         }
         if ((block.getData() == (byte)15)
                 && block.getFace(BlockFace.DOWN).getType() == Material.WATER) {
-            simulateBreak(block);
+            plugin.simulateBreak(block);
         }
-    }
-
-    private void simulateBreak(Block block) {
-        Material dropItem = null;
-        if(block.getType() == Material.STONE) dropItem = Material.STONE;
-        else if (block.getType() == Material.IRON_BLOCK) dropItem = Material.IRON_INGOT;
-        else if (block.getType() == Material.GOLD_BLOCK) dropItem = Material.GOLD_INGOT;
-        else if (block.getType() == Material.GLASS) dropItem = Material.GLASS;
-        else if (block.getType() == Material.BRICK) dropItem = Material.BRICK;
-        else return;
-        block.getWorld().dropItemNaturally(block.getLocation(), new ItemStack(dropItem, 1));
-        block.setType(Material.AIR);
     }
 }

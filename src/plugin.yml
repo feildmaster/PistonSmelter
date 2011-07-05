@@ -1,7 +1,5 @@
 name: PistonSmelter
 main: feildmaster.PistonSmelter.PistonSmelter
-version: 1.6
-authors:
-  - feildmaster
-  - TheGildur
+version: 1.6.1
+author: feildmaster
 description: Turn lava into stone, break stone for stone!
