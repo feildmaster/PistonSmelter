@@ -1,0 +1,5 @@
+name: ${name}
+main: com.feildmaster.pistonsmelter.PistonSmelter
+version: ${version}
+author: feildmaster
+description: Turn lava into stone, break stone for stone!
